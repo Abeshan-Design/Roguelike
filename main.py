@@ -6,6 +6,7 @@ def main() -> None:
     screen_height = 50
 
     tileset = tcod.tileset.load_tilesheet("dejavu10x10_gs_tc.png", 32, 8, tcod.tileset.CHARMAP_TCOD)
+
     with tcod.context.new_terminal(
         screen_width,
         screen_height,
@@ -13,6 +14,7 @@ def main() -> None:
         title="Rogue Adventures",
         vsync=True,
     ) as context:
+        root_console = tcod.Console(screen_width, screen_height, order="F")
     
 if __name__ == "__main__":
     main()
