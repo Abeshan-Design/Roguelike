@@ -14,7 +14,15 @@ def main() -> None:
         title="Rogue Adventures",
         vsync=True,
     ) as context:
-        root_console = tcod.Console(screen_width, screen_height, order="F")
+        
+        root_console = tcod.console.Console(screen_width, screen_height, order='F')
+        while True:
+            root_console.print(x=1, y=1, string='@')
+            context.present(root_console)
+            
+            for event in tcod.event.wait():
+                if event.type == 'QUIT':
+                    raise SystemExit()
     
 if __name__ == "__main__":
     main()
