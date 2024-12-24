@@ -1,7 +1,7 @@
 import tcod
 from actions import Escape, Movement
 from input_handlers import EventHandler
-from entities import Entity
+from entity import Entity
 
 def main() -> None:
     screen_width = 80
