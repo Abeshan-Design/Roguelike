@@ -22,7 +22,15 @@ class RectangularRoom:
     @property
     def inner(self) -> Tuple[slice, slice]:
         return slice(self.x1 + 1, self.x2), slice(self.y1 + 1, self.y2)
-    
+
+    def intersects(self, other: RectangularRoom) -> bool:
+        return (
+            self.x1 <= other.x2
+            and self.x2 >= other.x1
+            and self.y1 <= other.y2
+            and self.y2 >= other.y1
+        )
+
 def tunnel_between(start: Tuple[int, int], end: Tuple[int, int]) -> Iterator[Tuple[int, int]]:
     x1, y1 = start
     x2, y2 = end
