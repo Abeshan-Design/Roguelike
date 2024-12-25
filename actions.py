@@ -26,7 +26,7 @@ class ActionWithDirection(Action):
     def perform(self, engine: Engine, entity: Entity) -> None:
         raise NotImplementedError()
 
-class MeleeAction(ActionWithDirection):
+class Melee(ActionWithDirection):
     def perform(self, engine: Engine, entity: Entity) -> None:
         dest_x = entity.x + self.dx
         dest_y = entity.y + self.dy
@@ -34,9 +34,19 @@ class MeleeAction(ActionWithDirection):
         if not target:
             return 
 
-        print(f"You punched the {target.name}")
+        print(f"You punched the {target.name}!")
 
+class Checker(ActionWithDirection):
+    def perform(self, engine: Engine, entity: Entity) -> None:
+        dest_x = entity.x + self.dx
+        dest_y = entity.y + self.dy
 
+        if engine.game_map.get_blocking_entity_at_location(dest_x, dest_y):
+            return Melee(self.dx, self.dy).perform(engine, entity)
+
+        else:
+            return Movement(self.dx, self.dy).perform(engine, entity)
+        
 class Movement(ActionWithDirection):
 
     def perform(self, engine: Engine, entity: Entity) -> None:

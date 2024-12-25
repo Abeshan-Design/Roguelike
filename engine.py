@@ -22,6 +22,7 @@ class Engine:
                 continue
 
             action.perform(self, self.player)
+            self.handle_enemy_turns()
             self.update_fov()
 
     def render(self, console: Console, context: Context) -> None:
@@ -34,3 +35,7 @@ class Engine:
     def update_fov(self) -> None:
         self.game_map.visible[:] = compute_fov(self.game_map.tiles['transparent'],(self.player.x, self.player.y), radius = 4)
         self.game_map.explored |= self.game_map.visible
+
+    def handle_enemy_turns(self) -> None:
+        for entity in self.game_map.entities - {self.player}:
+            pass 
