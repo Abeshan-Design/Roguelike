@@ -4,6 +4,7 @@ from game_map import GameMap
 import tile_types
 import random
 import tcod
+import entity_factories
 
 if TYPE_CHECKING:
     from entity import Entity
@@ -95,6 +96,6 @@ def place_entities(room: RectangularRoom, dungeon: GameMap, maximum_monsters: in
 
         if not any(entity.x ==x and entity.y == y for entity in dungeon.entities):
             if random.random() < 0.8:
-                pass #todo
+                entity_factories.slime.spawn(dungeon, x, y)
             else:
-                pass #todo
+                entity_factories.goblin.spawn(dungeon, x, y)
