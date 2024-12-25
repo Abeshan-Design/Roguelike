@@ -23,6 +23,7 @@ def new_tile(
         transparent: int,
         dark: Tuple[int, Tuple[int, int, int], Tuple[int, int ,int]],
         light: Tuple[int, Tuple[int, int, int], Tuple[int, int, int]], 
+        
 ) -> np.ndarray:
     return np.array((walkable, transparent, dark, light), dtype=tile_dt)
 

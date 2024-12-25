@@ -12,9 +12,11 @@ class GameMap:
         self.width = width
         self.height = height
         self.entities = set(entities)
+
         self.tiles = np.full((width, height), fill_value=tile_types.wall, order="F")
         self.visible = np.full((width, height), fill_value=False, order="F")
         self.explored = np.full((width, height), fill_value=False, order="F")
+
         self.tiles[30:33, 22] = tile_types.wall
 
     def in_bounds(self, x: int, y: int) -> bool:
@@ -22,6 +24,7 @@ class GameMap:
     
     def render(self, console: Console) -> None:
         console.tiles_rgb[0:self.width, 0:self.height] = np.select(
+            
             condlist=[self.visible, self.explored], choicelist=[self.tiles['light'], self.tiles['dark']],
             default = tile_types.fog
         )
