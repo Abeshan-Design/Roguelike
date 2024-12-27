@@ -6,12 +6,14 @@ import tile_types
 
 if TYPE_CHECKING:
     from entity import Entity
+    from engine import Engine
 
 class GameMap:
-    def __init__(self, width: int, height: int, entities: Iterable[Entity] = ()):
+    def __init__(self, engine: Engine, width: int, height: int, entities: Iterable[Entity] = ()):
         self.width = width
         self.height = height
         self.entities = set(entities)
+        self.engine = engine
 
         self.tiles = np.full((width, height), fill_value=tile_types.wall, order="F")
         self.visible = np.full((width, height), fill_value=False, order="F")
@@ -33,7 +35,7 @@ class GameMap:
         console.tiles_rgb[0:self.width, 0:self.height] = np.select(
             
             condlist=[self.visible, self.explored], choicelist=[self.tiles['light'], self.tiles['dark']],
-            default = tile_types.fog
+            default = tile_types.fog,
         )
         for entity in self.entities:
             if self.visible[entity.x, entity.y]:
