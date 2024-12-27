@@ -1,6 +1,26 @@
-from entity import Entity
+from components.ai import HostileEnemy
+from components.fighter import Fighter
+from entity import Actor
 
-player = Entity(char="@", color=(255, 255, 255), name="Player", blocks_movement=True)
+player = Actor(
+    char="@",
+    color=(255, 255, 255),
+    name="Player",
+    ai_cls=HostileEnemy,
+    fighter=Fighter(hp=30, defense=3, power=5),
+)
 
-slime = Entity(char="s", color=(0, 255, 0), name="Slime", blocks_movement=True)
-goblin = Entity(char="g", color=(150, 75, 0), name="Goblin", blocks_movement=True)
+slime = Actor(
+    char="s",
+    color=(0, 255, 0),
+    name="Slime",
+    ai_cls=HostileEnemy,
+    fighter=Fighter(hp=10, defense=0, power=2),
+)
+goblin = Actor(
+    char="g",
+    color=(150, 75, 0),
+    name="Goblin",
+    ai_cls=HostileEnemy,
+    fighter=Fighter(hp=15, defense=1, power=5),
+)

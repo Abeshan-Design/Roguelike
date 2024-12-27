@@ -72,3 +72,7 @@ class Movement(ActionWithDirection):
             return  
         
         self.entity.move(self.dx, self.dy)
+
+class Wait(Action):
+    def perform(self) -> None:
+        pass
