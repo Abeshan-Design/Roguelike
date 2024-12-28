@@ -52,6 +52,7 @@ class GameMap:
             condlist=[self.visible, self.explored], choicelist=[self.tiles['light'], self.tiles['dark']],
             default = tile_types.fog,
         )
-        for entity in self.entities:
+        rendered_sorted_entities = sorted(self.entities, key=lambda x: x.render_order.value)
+        for entity in rendered_sorted_entities:
             if self.visible[entity.x, entity.y]:
                 console.print(entity.x, entity.y, entity.char, fg = entity.color)
