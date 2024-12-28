@@ -2,6 +2,7 @@
 
 Welcome to the 2D Roguelike Adventure Game! This is a fully functional roguelike game that combines dynamic gameplay with strategic challenges. Players explore procedurally generated dungeons, interact with enemies, manage resources, and progressively increase their power.
 
+
 Features:
 
 Procedural Dungeon Generation: Each playthrough features a unique dungeon layout.
@@ -25,6 +26,7 @@ Save and Load Functionality: Progress can be saved and resumed at any time.
 Scaling Difficulty: Levels become progressively harder as you delve deeper into the dungeon.
 
 Customization: Gear up with items to enhance your abilities and improve survivability.
+
 
 Game Development Breakdown
 
@@ -61,6 +63,7 @@ Difficulty Scaling: Adjusted challenges as the player progresses.
 Gear and Power-Ups: Enhanced customization and itemization for late-game play.
 
 
+
 How to Play
 
 1. Clone the repository:
@@ -70,6 +73,7 @@ How to Play
 3. Use arrow keys or WASD to navigate the dungeon.
    
 4. Explore, fight enemies, and collect items to survive and advance.
+
 
 Requirements:
 
