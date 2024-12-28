@@ -8,6 +8,7 @@ Procedural Dungeon Generation: Each playthrough features a unique dungeon layout
 Field of View Mechanics: Dynamic visibility based on the player's position.
 Enemy Interaction: Enemies are strategically placed, providing engaging combat scenarios.
 Damage System: Players and enemies can deal and take damage based on stats.
+#WIP underneath
 User Interface: Intuitive UI elements to display health, inventory, and other important metrics.
 Inventory System: Collect and manage items such as weapons, potions, and scrolls.
 Ranged Attacks and Targeting: Utilize ranged scrolls to attack enemies at a distance.
@@ -25,6 +26,7 @@ Dungeon Generation: Created dynamic and random dungeon layouts.
 Field of View: Implemented mechanics for visibility based on player location.
 Enemy Placement: Designed enemy interaction and basic combat.
 Damage System: Added functionality for dealing and receiving damage.
+#WIP underneath
 Interface: Developed a graphical interface to display player stats and actions.
 Items and Inventory: Implemented item collection and management.
 Ranged Attacks: Added scrolls and a targeting system for ranged combat.
