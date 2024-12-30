@@ -4,13 +4,13 @@ from engine import Engine
 from entity import Entity
 from procgen import generate_dungeon
 import entity_factories
-
+import color
 
 def main() -> None:
     screen_width = 80
     screen_height = 50
     map_width = 80
-    map_height = 45
+    map_height = 40
     room_max_size = 12
     room_min_size = 5
     max_rooms = 20
@@ -30,6 +30,8 @@ def main() -> None:
         max_mons_in_room=max_mons_in_room, 
         engine=engine)
     engine.update_fov()
+    engine.message_log.add_message(
+        "Welcome to the dungeon! Attack enemies and become stronger", color.welcome_text)
 
     with tcod.context.new_terminal(
         screen_width,
@@ -41,8 +43,10 @@ def main() -> None:
         
         root_console = tcod.console.Console(screen_width, screen_height, order='F')
         while True:
-            engine.render(console = root_console, context = context)
-            engine.event_handler.handle_events()
+            root_console.clear()
+            engine.event_handler.on_render(console=root_console)
+            context.present(root_console)
+            engine.event_handler.handle_events(context)
     
 if __name__ == "__main__":
     main()
