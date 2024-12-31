@@ -3,14 +3,13 @@ from typing import List, Tuple, TYPE_CHECKING
 import numpy as np
 import tcod
 from actions import Action, Melee, Movement, Wait
-from components.base_component import BaseComponent
+
 
 if TYPE_CHECKING:
     from entity import Actor
 
 
-class BaseAI(Action, BaseComponent):
-    entity: Actor
+class BaseAI(Action):
     def perform(self) -> None:
         raise NotImplementedError()
 

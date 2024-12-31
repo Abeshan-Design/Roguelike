@@ -5,6 +5,7 @@ from tcod.map import compute_fov
 from input_handlers import MainGameEventHandler
 from render_functions import render_bar, render_names_at_mouse_location
 from message_log import MessageLog
+import exceptions
 
 if TYPE_CHECKING:
     from entity import Actor
@@ -40,4 +41,7 @@ class Engine:
     def handle_enemy_turns(self) -> None:
         for entity in set(self.game_map.actors) - {self.player}:
             if entity.ai:
-                entity.ai.perform()
+                try:
+                    entity.ai.perform()
+                except exceptions.Impossible:
+                    pass
