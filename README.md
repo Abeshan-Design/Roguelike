@@ -13,8 +13,6 @@ Features:
 
    Damage System: Players and enemies can deal and take damage based on stats.
 
-   #WIP underneath
-
    User Interface: Intuitive UI elements to display health, inventory, and other important metrics.
 
    Inventory System: Collect and manage items such as weapons, potions, and scrolls.
@@ -46,12 +44,12 @@ Game Development Breakdown
 
    Damage System: Added functionality for dealing and receiving damage.
 
-   #WIP underneath
+   Items and Inventory: Implemented item collection and management.
 
    Interface: Developed a graphical interface to display player stats and actions.
 
-   Items and Inventory: Implemented item collection and management.
-   
+   #WIP underneath
+
    Ranged Attacks: Added scrolls and a targeting system for ranged combat.
 
    Save/Load System: Enabled players to save progress and resume gameplay.
